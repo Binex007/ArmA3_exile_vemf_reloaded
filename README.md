@@ -1,19 +1,36 @@
 #ArmA3_exile_vemf_reloaded
-###VEMFr; a mission system for ArmA3 Exile Mod
-####Based on VEMF (Vampire's Epoch Mission Framework)
+###VEMFr; система миссий для ArmA3 Exile Mod
+####На основе VEMF (Vampire's Epoch Mission Framework)
 <br />
-######HOW TO DOWNLOAD
+######РУКОВОДСТВО ПО УСТАНОВКЕ
+######На стороне сервера
 ```
-ArmA3_exile_vemf_reloaded.7z (click it) >> Raw button (click it)
+закинуть два файла в ваш сервер 
+exile_vemf_reloaded.pbo >> @ExileServer\addons\
+exile_vemf_reloaded_config.pbo >> @ExileServer\addons\
 ```
-######INSTALLATION GUIDE
+######На стороне клиента
+Копируем папку VEMFr_client в папку вашей миссии.
+Вам нужно открыть файл миссии вашего сервера.
+Если вы используете карту Altis например, он будет называется Exile.Altis.pbo.
+Или при запуске например Esseker, то это будет Exile.Esseker.pbo.
+Обычно этот файл расположен в папке mpmissions, которая находится в корневом каталоге вашего сервера.
+Просто распакуйте этот файл и перейдите в папку.
+Там должен быть файл с именем description.ext . Откройте его и найдите строку class RscTitles
+Если вы не можете найти ее, можете добавьте в нижней части вашего description.ext
 ```
-Exile.MapName\init.sqf (contents) >> MPmissions\Exile.*nameOfMap*\init.sqf
-Exile.MapName\description.ext (contents) >> MPmissions\Exile.*nameOfMap*\description.ext
+class RscTitles
+{
+	#include "VEMFr_client\gui\RscDisplayVEMFrClient.hpp"
+};
 ```
+<br />
+в папке вашей миссии создайте файл init.sqf и добавить в него это
 ```
-.7z >> exile_vemf_reloaded.pbo >> @ExileServer\addons\
-.7z >> exile_vemf_reloaded_config.pbo >> @ExileServer\addons\
+if hasInterface then
+{
+	[] ExecVM "VEMFr_client\sqf\initClient.sqf"; 
+};
 ```
-######CONFIGURATION GUIDE
-To customize VEMFr to your needs/liking, edit the *config_override.cpp* located inside the *exile_vemf_reloaded_config.pbo* <br />
+######КОНФИГУРАЦИИ
+Чтобы настроить VEMFr по вашему вкусу, отредактируйте *config_override.cpp*, расположенный внутри *exile_vemf_reloaded_config.pbo* <br />
