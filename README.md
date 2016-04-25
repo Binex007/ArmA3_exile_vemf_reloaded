@@ -32,5 +32,5 @@ if hasInterface then
 	[] ExecVM "VEMFr_client\sqf\initClient.sqf"; 
 };
 ```
-######КОНФИГУРАЦИИ
-* Чтобы настроить VEMFr по вашему вкусу, отредактируйте **config_override.cpp**, расположенный внутри **exile_vemf_reloaded_config.pbo** <br />
+**КОНФИГУРАЦИИ**
+* Чтобы настроить **VEMFr** по вашему вкусу, отредактируйте **config_override.cpp**, расположенный внутри **exile_vemf_reloaded_config.pbo** <br />
